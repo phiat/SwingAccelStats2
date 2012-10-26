@@ -45,8 +45,7 @@
 @end
 
 @implementation ViewController
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.accelerometer = [UIAccelerometer sharedAccelerometer];
@@ -58,13 +57,9 @@
     [self.flashButton setTitle:@"OFF" forState:UIControlStateNormal];
     self.photoCount = 0;
     self.photoCountLabel.text = @"n: 0";
-       
-    
-
 }
 
 - (NSTimeInterval)timeDifferenceSinceLastOpen {
-    
     if (!self.lastTimePhotoTaken)
         self.lastTimePhotoTaken= [NSDate date];
     NSDate *currentTime = [NSDate date];
@@ -75,8 +70,7 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
@@ -94,7 +88,6 @@
     if (accZ < kZDelta && accZ > -kZDelta ){
         [self getPhoto];
     }
-
 }
 - (IBAction)toggleFlashMode:(id)sender {
     if (self.isFlashOn){
