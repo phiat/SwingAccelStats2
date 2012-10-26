@@ -41,7 +41,8 @@
 - (IBAction)bgAlphaSliderChange:(id)sender;
 
 @property (nonatomic, retain) UIAccelerometer *accelerometer;
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration;
+- (void)accelerometer:(UIAccelerometer *)accelerometer
+        didAccelerate:(UIAcceleration *)acceleration;
 @end
 
 @implementation ViewController
@@ -54,7 +55,8 @@
     self.isPaused = false;
     self.isFlashOn = false;
     self.lastTimePhotoTaken = [NSDate date];
-    [self.flashButton setTitle:@"OFF" forState:UIControlStateNormal];
+    [self.flashButton setTitle:@"OFF"
+                      forState:UIControlStateNormal];
     self.photoCount = 0;
     self.photoCountLabel.text = @"n: 0";
 }
@@ -75,7 +77,8 @@
     // Dispose of any resources that can be recreated.
     
 }
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+- (void)accelerometer:(UIAccelerometer *)accelerometer
+        didAccelerate:(UIAcceleration *)acceleration {
     
     double accX = acceleration.x;
     double accY = acceleration.y;
@@ -92,12 +95,14 @@
 - (IBAction)toggleFlashMode:(id)sender {
     if (self.isFlashOn){
         self.isFlashOn = false;
-        [self.flashButton setTitle:@"OFF" forState:UIControlStateNormal];
+        [self.flashButton setTitle:@"OFF"
+                          forState:UIControlStateNormal];
         
     }
     else{
         self.isFlashOn = true;
-        [self.flashButton setTitle:@"ON" forState:UIControlStateNormal];
+        [self.flashButton setTitle:@"ON"
+                          forState:UIControlStateNormal];
     }
     
 }
@@ -163,7 +168,8 @@
         // Setup instance of input with back camera and add to session.
         NSError *error;
         AVCaptureDeviceInput *input =
-        [AVCaptureDeviceInput deviceInputWithDevice:backCamera error:&error];
+        [AVCaptureDeviceInput deviceInputWithDevice:backCamera
+                                              error:&error];
         
         if ( !error && [self.session canAddInput:input] ) {
             // Add back camera to this session.
