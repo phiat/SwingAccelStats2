@@ -15,29 +15,30 @@
 #define kZDelta 0.08 
 
 @interface ViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *photoIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
-- (IBAction)bgAlphaSliderChange:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *bgAlphaSlider;
 @property (weak, nonatomic) IBOutlet UIButton *bgButton;
 @property (weak, nonatomic) IBOutlet UILabel *photoCountLabel;
-
-@property (nonatomic,weak) IBOutlet UIButton *flashButton;
-- (IBAction)toggleFlashMode:(id)sender;
-- (IBAction)photoButton:(id)sender;
-- (IBAction)pauseButton:(id)sender;
-- (IBAction)getPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *labelZ;
 @property (weak, nonatomic) IBOutlet UILabel *labelY;
 @property (weak, nonatomic) IBOutlet UILabel *labelX;
+@property (weak, nonatomic) IBOutlet UIButton *flashButton;
 
 @property  BOOL isPaused;
 @property  BOOL isFlashOn;
 @property int photoCount;
-
 @property  AVCaptureSession *session;
 @property  AVCaptureStillImageOutput *output;
 @property  (nonatomic,retain) NSDate *lastTimePhotoTaken;
+
+ 
+- (IBAction)toggleFlashMode:(id)sender;
+- (IBAction)photoButton:(id)sender;
+- (IBAction)pauseButton:(id)sender;
+- (IBAction)getPhoto;
+- (IBAction)bgAlphaSliderChange:(id)sender;
 
 @property (nonatomic, retain) UIAccelerometer *accelerometer;
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration;
