@@ -15,6 +15,10 @@
 #define kZDelta 0.08 
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *photoIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+- (IBAction)bgAlphaSliderChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *bgAlphaSlider;
 @property (weak, nonatomic) IBOutlet UIButton *bgButton;
 @property (weak, nonatomic) IBOutlet UILabel *photoCountLabel;
 
@@ -204,6 +208,14 @@
                             UIImage *photo = [[UIImage alloc] initWithData:imageData];
                             UIImageWriteToSavedPhotosAlbum(photo, nil, nil, nil);
                             NSLog(@"took photo");
+                            [UIView animateWithDuration:0.4 animations:^ {
+                                self.photoIndicator.alpha = 1.0;
+                            } completion:^(BOOL finished) {
+                                self.photoIndicator.alpha = 0.0;
+                            
+                            }
+                             ];
+                             
                             self.photoCount += 1;
                             self.photoCountLabel.text = [NSString stringWithFormat:@"n: %i",self.photoCount];
                         }
@@ -214,5 +226,8 @@
         }
     }
 }
+}
+- (IBAction)bgAlphaSliderChange:(id)sender {
+    self.bgImage.alpha = self.bgAlphaSlider.value;
 }
 @end
